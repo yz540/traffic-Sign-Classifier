@@ -82,19 +82,15 @@ My final model consisted of the following layers:
 | Convolution 5x5	    | 1x1 stride, valid padding, outputs 24x24x16       									|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 12x12x16 				|
-
 | Convolution 3x3     	| 1x1 stride, valid padding, outputs 10x10x30 	|
 | RELU					|												|
 | Convolution 3x3	    | 1x1 stride, valid padding, outputs 8x8x48       									|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 4x4x48 				|
-
 | Fully connected		| input 768, output 200     									|
 | RELU					|												|
 | Dropout				| keep probability 0.5        									|
 | Fully connected		| input 200, output 43     									|
-
- 
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
@@ -110,23 +106,20 @@ My final model results were:
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
-At first, I used the well-know LeNet-5 used in the course. But the validation accuracy didn't reach 90%. 
+At first, I used the well-know LeNet-5 used in the course. It has shown good performance in the MINST example used in the course. But the validation accuracy of this project didn't reach 90%. 
 After normalizing and grayscaling images, the validation accuracy reached 94%.
 
 * What were some problems with the initial architecture?
-Pooling reduces the information in the data.
+Each convolution layer is followed by a pooling layer, which reduces the information in the data.
 
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 
+I added more convolution layers and dropout layer to have high accuracy and reduce over fitting.
+
 * Which parameters were tuned? How were they adjusted and why?
+The batch size, learning rate, balanced size of data.
 
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 
 ### Test a Model on New Images
 
