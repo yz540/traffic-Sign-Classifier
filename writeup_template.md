@@ -22,11 +22,18 @@ The goals / steps of this project are the following:
 [image1]: ./examples/distribution.png "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image4]: ./test/00006.ppm "Traffic Sign 1"
+[image5]: ./test/00090.ppm "Traffic Sign 2"
+[image6]: ./test/00129.ppm "Traffic Sign 3"
+[image7]: ./test/00282.ppm "Traffic Sign 4"
+[image8]: ./test/00574.ppm "Traffic Sign 5"
+[image8]: ./test/00829.ppm "Traffic Sign 6"
+[image8]: ./test/120.jpg "Traffic Sign 7"
+[image8]: ./test/index.png "Traffic Sign 8"
+[image8]: ./test/stop.jpg "Traffic Sign 9"
+[image8]: ./test/stop1.jpg "Traffic Sign 10"
+[image8]: ./test/end.jpg "Traffic Sign 11"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -79,13 +86,17 @@ My final model consisted of the following layers:
 | Input         		| 32x32x1 grayscale image   							| 
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
+| Dropout				| keep probability 0.5        									|
 | Convolution 5x5	    | 1x1 stride, valid padding, outputs 24x24x16       									|
 | RELU					|												|
+| Dropout				| keep probability 0.5        									|
 | Max pooling	      	| 2x2 stride,  outputs 12x12x16 				|
 | Convolution 3x3     	| 1x1 stride, valid padding, outputs 10x10x30 	|
 | RELU					|												|
+| Dropout				| keep probability 0.5        									|
 | Convolution 3x3	    | 1x1 stride, valid padding, outputs 8x8x48       									|
 | RELU					|												|
+| Dropout				| keep probability 0.5        									|
 | Max pooling	      	| 2x2 stride,  outputs 4x4x48 				|
 | Fully connected		| input 768, output 200     									|
 | RELU					|												|
@@ -95,40 +106,31 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an AdamOptimizer that implements the Adam algorithm with batch size 120, 20 epochs and learning rate 0.0011.
+To train the model, I used an AdamOptimizer that implements the Adam algorithm with batch size 120, 10 epochs and a global learning rate 0.002.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.983
+* validation set accuracy of 0.945 
+* test set accuracy of 0.945
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-At first, I used the well-know LeNet-5 used in the course. It has shown good performance in the MINST example used in the course. But the validation accuracy of this project didn't reach 90%. 
-After normalizing and grayscaling images, the validation accuracy reached 94%.
+At first, I used the well-know LeNet-5 used in the course. It has shown good performance in the MINST example used in the course. But the validation accuracy of this project didn't reach 90%. After normalizing and grayscaling images, the validation accuracy reached 94%.
 
-* What were some problems with the initial architecture?
-Each convolution layer is followed by a pooling layer, which reduces the information in the data.
-
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-
-I added more convolution layers and dropout layer to have high accuracy and reduce over fitting.
-
-* Which parameters were tuned? How were they adjusted and why?
-The batch size, learning rate, balanced size of data.
-
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+Each convolution layer is followed by a pooling layer, which reduces the information in the data. I added more convolution layers and dropout layer to have high accuracy and reduce over fitting. I tuned the batch size, convolution kernel size and learning rate.
+I added dropout layer to reduce the overfit.
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are 5 German traffic signs that I found on the web and 6 random signs from the test folder:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
+![alt text][image9] ![alt text][image10]
+![alt text][image11] ![alt text][image12]
+![alt text][image13] ![alt text][image14]
 
 The first image might be difficult to classify because ...
 
