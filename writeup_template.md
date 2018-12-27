@@ -112,9 +112,9 @@ To train the model, I used an AdamOptimizer that implements the Adam algorithm w
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of 0.986
-* validation set accuracy of 0.956
-* test set accuracy of 0.941
+* training set accuracy of 0.980
+* validation set accuracy of 0.951
+* test set accuracy of 0.939
 
 At first, I used the well-know LeNet-5 used in the course. It has shown good performance in the MINST example used in the course. But the validation accuracy of this project didn't reach 90%. After normalizing and grayscaling images, the validation accuracy reached 94%. But it misclassified one of the web images, the animal crossing sign, as slippery road sign. 
 
@@ -138,7 +138,7 @@ The original images contain noises, and the model didn't manage to predict them 
 Here are the results of the prediction:
 ![Prediction][image13]
 
-The model was able to correctly guess 9 of the 9 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 94.1%. But one critical drawback of this model is that it cannot recoganize the intrest part in an image by itself.
+The model was able to correctly guess 9 of the 9 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 93.9%. But one critical drawback of this model is that it cannot recoganize the intrest part in an image by itself.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
