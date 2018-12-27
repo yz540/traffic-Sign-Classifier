@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/distribution.png "Visualization"
 [image2]: ./examples/gray.jpg "Grayscaling"
-[image3]: ./examples/random.png "Random exploration"
+[image3]: ./test/random.png "Random exploration"
 [image4]: ./test/animal_crossing.jpg "Traffic Sign 7"
 [image5]: ./test/end.jpg "Traffic Sign 8"
 [image6]: ./test/general%20caution.jpg "Traffic Sign 9"
