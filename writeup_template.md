@@ -80,7 +80,7 @@ As a last step, I normalized the image data using (pixel - 128)/128 because it w
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-My final model consisted of the following layers:
+My final model consisted of the following layers as in the 7th cell:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -131,8 +131,9 @@ Here are 9 German traffic signs that I found on the web:
 ![alt text][image9] ![alt text][image10]
 ![alt text][image11] ![alt text][image12]
 
-The original images contain noises, and the model didn't manage to predict them correctly. Then I cropped them to keep only the traffic sign parts. They are then resized to 32x32x3 for the input.
-
+The original images contain noises, and the model didn't manage to predict them correctly. Then I cropped them to keep only the traffic sign parts. They are then resized to 32x32x3 for the input using the code:
+```cv2.resize(img, (32, 32), interpolation = cv2.INTER_AREA )
+```
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
@@ -142,7 +143,7 @@ The model was able to correctly guess 9 of the 9 traffic signs, which gives an a
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 18th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 15th cell of the Ipython notebook.
 This image shows the top five soft max probabilities for these images.
 ![Probability][image14]
 
