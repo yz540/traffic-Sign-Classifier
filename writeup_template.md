@@ -132,7 +132,8 @@ Here are 9 German traffic signs that I found on the web:
 ![alt text][image11] ![alt text][image12]
 
 The original images contain noises, and the model didn't manage to predict them correctly. Then I cropped them to keep only the traffic sign parts. They are then resized to 32x32x3 for the input using the code:
-```cv2.resize(img, (32, 32), interpolation = cv2.INTER_AREA )
+```
+cv2.resize(img, (32, 32), interpolation = cv2.INTER_AREA )
 ```
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
