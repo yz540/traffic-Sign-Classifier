@@ -20,19 +20,19 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/distribution.png "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./test/00006.ppm "Traffic Sign 1"
-[image5]: ./test/00090.ppm "Traffic Sign 2"
-[image6]: ./test/00129.ppm "Traffic Sign 3"
-[image7]: ./test/00282.ppm "Traffic Sign 4"
-[image8]: ./test/00574.ppm "Traffic Sign 5"
-[image8]: ./test/00829.ppm "Traffic Sign 6"
-[image8]: ./test/120.jpg "Traffic Sign 7"
-[image8]: ./test/index.png "Traffic Sign 8"
-[image8]: ./test/stop.jpg "Traffic Sign 9"
-[image8]: ./test/stop1.jpg "Traffic Sign 10"
-[image8]: ./test/end.jpg "Traffic Sign 11"
+[image2]: ./examples/gray.jpg "Grayscaling"
+[image3]: ./examples/random.png "Random exploration"
+[image4]: ./test/animal_crossing.jpg "Traffic Sign 7"
+[image5]: ./test/end.jpg "Traffic Sign 8"
+[image6]: ./test/general caution.jpg "Traffic Sign 9"
+[image7]: ./test/priority.jpg "Traffic Sign 10"
+[image8]: ./test/speed limit 30.jpg "Traffic Sign 11"
+[image9]: ./test/speed limit 50.jpg "Traffic Sign 7"
+[image10]: ./test/speed limit 60.png "Traffic Sign 8"
+[image11]: ./test/stop.jpg "Traffic Sign 9"
+[image12]: ./test/yield.jpg "Traffic Sign 10"
+[image13]: ./test/prediction.png "Prediction"
+[image14]: ./test/prob.png "Probability"
 
 
 ## Rubric Points
@@ -43,7 +43,7 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/yz540/traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -60,7 +60,10 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing the number of data for each class. The x-axis denotes label and the y-axis shows the number of images for each label.
+Each label of a traffic sign class is shown here.
+![Labels][image3]
+
+The distribution of each class is shown in the graph below, a bar chart showing the number of data for each class. The x-axis denotes label and the y-axis shows the number of images for each label.
 
 ![Data distribution][image1]
 
@@ -124,47 +127,27 @@ I added dropout layer to reduce the overfit.
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are 5 German traffic signs that I found on the web and 6 random signs from the test folder:
+Here are 9 German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 ![alt text][image9] ![alt text][image10]
 ![alt text][image11] ![alt text][image12]
-![alt text][image13] ![alt text][image14]
 
-The first image might be difficult to classify because ...
+The original images contain noises, and the model didn't manage to predict well. Then I cropped them to keep only the traffic sign parts.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
+![Prediction][image13]
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 8 of the 9 traffic signs, which gives an accuracy of 89%. This compares favorably to the accuracy on the test set of 94.5%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
+The code for making predictions on my final model is located in the 18th cell of the Ipython notebook.
+This image shows the top five soft max probabilities for these images.
+![Probability][image14]
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
